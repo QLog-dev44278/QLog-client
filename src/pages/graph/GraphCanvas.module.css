@@ -1,0 +1,90 @@
+.root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.root:active {
+  cursor: grabbing;
+}
+
+.stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transition: transform 0.12s ease-out;
+}
+
+.edges {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+/* 별 중심이 (x, y)에 오도록: GraphNode padding 4px + 별 반지름 약 3px */
+.anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition: opacity 0.2s;
+}
+
+.node {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.ring {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--accent-violet);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.dimmed {
+  opacity: 0.2;
+}
+
+.zoom {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+  box-shadow: var(--elevation-float);
+  backdrop-filter: var(--elevation-blur);
+  transform: translateX(-50%);
+  cursor: default;
+}
+
+.zoom button {
+  min-width: 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.zoom button:hover {
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    transition: none;
+  }
+}
