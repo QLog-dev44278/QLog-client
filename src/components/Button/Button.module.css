@@ -46,6 +46,15 @@
   color: var(--text-primary);
 }
 
+.danger {
+  border: 1px solid var(--accent-coral);
+  color: var(--accent-coral);
+}
+
+.danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent-coral) 12%, transparent);
+}
+
 .fullWidth {
   width: 100%;
 }
