@@ -1,0 +1,39 @@
+/* Figma 텍스트 스타일. letterSpacing(%)은 em으로 변환 */
+.heading-24 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.heading-20 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.title-16 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.body-14 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.label-13 {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.caption-12 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}

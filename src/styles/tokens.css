@@ -1,0 +1,55 @@
+/* Figma "Design" 페이지의 변수(Variables)와 텍스트·이펙트 스타일 */
+:root {
+  /* background */
+  --bg-base: #0c1124;
+  --bg-subtle: #182040;
+  --bg-elevated: #1d2543;
+
+  /* border */
+  --border-default: #2c3459;
+  --border-strong: #3b4470;
+
+  /* text */
+  --text-primary: #eaecf6;
+  --text-secondary: #9399bc;
+  --text-muted: #646c93;
+  --text-on-primary: #1a1405;
+
+  /* accent */
+  --accent-star: #f6c85f;
+  --accent-star-white: #f5f1e6;
+  --accent-violet: #a3abf5;
+  --accent-coral: #e58a6f;
+
+  /* action */
+  --action-primary: #f6c85f;
+
+  /* 이해 상태 (지식 그래프) */
+  --status-done: #f6c85f;
+  --status-studying: #f5f1e6;
+  --status-weak: #e58a6f;
+  --status-todo: #4b5480;
+  --status-recommended: #a3abf5;
+
+  /* space */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+
+  /* radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-full: 999px;
+
+  /* Elevation/Float */
+  --elevation-float: 0 2px 8px 0 rgba(5, 8, 18, 0.35), 0 16px 48px -8px rgba(5, 8, 18, 0.55),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  --elevation-blur: blur(12px);
+
+  --font-sans: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+}
