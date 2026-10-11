@@ -1,6 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AppLayout } from './components/AppLayout/AppLayout'
 import { Background } from './components/Background/Background'
+import { ForgotPasswordPage } from './pages/auth/ForgotPasswordPage'
+import { LoginPage } from './pages/auth/LoginPage'
+import { SignupPage } from './pages/auth/SignupPage'
 import { Placeholder } from './pages/Placeholder'
 
 export default function App() {
@@ -8,9 +11,9 @@ export default function App() {
     <BrowserRouter>
       <Background />
       <Routes>
-        <Route path="/login" element={<Placeholder title="로그인" />} />
-        <Route path="/signup" element={<Placeholder title="회원가입" />} />
-        <Route path="/forgot-password" element={<Placeholder title="비밀번호 찾기" />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
         <Route element={<AppLayout />}>
           <Route path="/" element={<Placeholder title="홈" />} />
