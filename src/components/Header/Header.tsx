@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import iconChevron from '../../assets/figma/icon-chevron-down.svg'
 import { currentUser } from '../../data/mock'
+import { avatarInitial } from '../../utils/avatar'
 import { Logo } from '../Logo/Logo'
 import { ProfileMenu } from '../ProfileMenu/ProfileMenu'
 import styles from './Header.module.css'
@@ -12,11 +13,6 @@ const NAV_ITEMS = [
   { to: '/graph', label: '지식 그래프', end: false },
   { to: '/notes', label: '정리 노트', end: false },
 ]
-
-/** 세 글자 한국 이름은 성을 뺀 첫 글자(정지윤 → 지), 그 외에는 첫 글자 */
-function avatarInitial(name: string) {
-  return name.length === 3 ? name[1] : name[0]
-}
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
