@@ -94,11 +94,6 @@
   color: var(--text-primary);
 }
 
-.selected .star {
-  outline: 1px solid var(--accent-violet);
-  outline-offset: 6px;
-}
-
 @keyframes twinkle {
   from {
     opacity: 1;
