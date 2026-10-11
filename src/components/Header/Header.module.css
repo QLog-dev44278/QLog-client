@@ -1,0 +1,81 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-40);
+  height: 72px;
+  padding: var(--space-16) var(--space-40);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.navItem {
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.navItem:hover {
+  color: var(--text-primary);
+}
+
+.active {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.profileWrap {
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.name {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* 01-1 프레임 기준: 헤더 아래 64px, 오른쪽 40px */
+.menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+}

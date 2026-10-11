@@ -1,0 +1,42 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.star {
+  border-radius: var(--radius-full);
+  background: var(--accent-star);
+}
+
+.md {
+  gap: var(--space-8);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.md .star {
+  width: 6px;
+  height: 6px;
+  box-shadow:
+    0 0 10px 0 rgba(246, 200, 95, 0.3),
+    0 0 4px 0 rgba(246, 200, 95, 0.8);
+}
+
+.lg {
+  gap: var(--space-12);
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.lg .star {
+  width: 8px;
+  height: 8px;
+  box-shadow:
+    0 0 20px 0 rgba(246, 200, 95, 0.35),
+    0 0 8px 0 rgba(246, 200, 95, 0.9);
+}
