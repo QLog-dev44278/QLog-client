@@ -1,0 +1,61 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg-base);
+  pointer-events: none;
+}
+
+/* 1440×900 프레임 기준 inset(-51.11% -30.56% -44.44% -26.39%) */
+.gradient {
+  position: absolute;
+  top: -51.11%;
+  right: -30.56%;
+  bottom: -44.44%;
+  left: -26.39%;
+  width: 156.95%;
+  height: 195.55%;
+  max-width: none;
+  animation: drift 75s ease-in-out infinite alternate;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: twinkle 7s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translate(-4%, 3%) scale(1.06);
+    filter: hue-rotate(-12deg);
+  }
+  100% {
+    transform: translate(3%, -2%) scale(1.02);
+    filter: hue-rotate(10deg);
+  }
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient,
+  .stars {
+    animation: none;
+  }
+}
