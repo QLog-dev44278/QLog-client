@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { QuestionCard } from '../../components/QuestionCard/QuestionCard'
 import { classifyQuestion } from '../../data/classify'
 import { recallQuestions } from '../../data/mock'
@@ -9,6 +9,7 @@ import { SavedQuestionModal } from './SavedQuestionModal'
 
 export function HomePage() {
   const [saved, setSaved] = useState<(NewQuestion & { topics: string[] }) | null>(null)
+  const prefill = useSearchParams()[0].get('q') ?? ''
 
   return (
     <main className={styles.body}>
@@ -20,6 +21,8 @@ export function HomePage() {
       </section>
 
       <QuestionComposer
+        key={prefill}
+        initialTitle={prefill}
         // TODO: 질문 저장 API 연동
         onSave={(question) => setSaved({ ...question, topics: classifyQuestion(question.title) })}
       />

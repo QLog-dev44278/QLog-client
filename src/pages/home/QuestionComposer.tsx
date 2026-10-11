@@ -9,8 +9,14 @@ export type NewQuestion = {
 }
 
 /** 홈의 질문 입력 카드: 질문 + (선택) 질문이 생긴 맥락 */
-export function QuestionComposer({ onSave }: { onSave: (question: NewQuestion) => void }) {
-  const [title, setTitle] = useState('')
+type QuestionComposerProps = {
+  onSave: (question: NewQuestion) => void
+  /** 질문함의 예시 질문 등에서 넘어올 때 미리 채워둘 질문 */
+  initialTitle?: string
+}
+
+export function QuestionComposer({ onSave, initialTitle = '' }: QuestionComposerProps) {
+  const [title, setTitle] = useState(initialTitle)
   const [context, setContext] = useState('')
   const [contextOpen, setContextOpen] = useState(false)
 
