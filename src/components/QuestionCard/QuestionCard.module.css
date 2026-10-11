@@ -1,0 +1,39 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-20);
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent-violet) 45%, var(--border-strong));
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.date {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.title {
+  color: var(--text-primary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.meta {
+  color: var(--text-secondary);
+}

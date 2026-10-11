@@ -1,0 +1,45 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 240px;
+  padding: var(--space-8);
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-12);
+}
+
+.email {
+  color: var(--text-muted);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: var(--border-default);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  width: 100%;
+  padding: var(--space-12);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.item:hover {
+  background: color-mix(in srgb, var(--bg-subtle) 70%, transparent);
+}
+
+.danger {
+  color: var(--accent-coral);
+}
