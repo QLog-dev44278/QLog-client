@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="17.2" height="17.2" viewBox="0 0 17.2 17.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="sparkle" opacity="0.4" filter="url(#filter0_f_0_4)">
+<g clip-path="url(#clip0_0_4)">
+<path id="Vector" d="M8.6 0.6L9 8.2L16.6 8.6L9 9L8.6 16.6L8.2 9L0.6 8.6L8.2 8.2L8.6 0.6Z" fill="#F5F1E6"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_4" x="0" y="0" width="17.2" height="17.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="0.3" result="effect1_foregroundBlur_0_4"/>
+</filter>
+<clipPath id="clip0_0_4">
+<rect width="16" height="16" fill="white" transform="translate(0.6 0.6)"/>
+</clipPath>
+</defs>
+</svg>
