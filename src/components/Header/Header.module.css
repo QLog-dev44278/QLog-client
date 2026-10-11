@@ -1,6 +1,6 @@
+/* 디자인상 헤더는 배경 위에 투명하게 놓이므로 고정하지 않고 함께 스크롤된다 */
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 10;
   display: flex;
   align-items: center;

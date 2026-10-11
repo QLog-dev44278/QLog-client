@@ -1,0 +1,258 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding: var(--space-24);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.basis {
+  flex: 1;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.placeholder {
+  padding: var(--space-32) 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* coverage */
+.coverage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.coverageRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.coverageLabel {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent-star);
+  box-shadow:
+    0 0 12px 0 rgba(246, 200, 95, 0.2),
+    0 0 6px 0 rgba(246, 200, 95, 0.5);
+  transition: width 0.6s ease-out;
+}
+
+/* feedback groups */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.star {
+  color: var(--accent-star);
+}
+
+.coral {
+  color: var(--accent-coral);
+}
+
+.violet {
+  color: var(--accent-violet);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* evaluating */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-24) 0;
+}
+
+.loadingHint {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.twinkle {
+  position: relative;
+  width: 96px;
+  height: 40px;
+}
+
+.twinkle span {
+  position: absolute;
+  border-radius: var(--radius-full);
+  animation: twinkle 1.8s ease-in-out infinite;
+}
+
+.twinkle span:nth-child(1) {
+  top: 22px;
+  left: 14px;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-star-white);
+  box-shadow:
+    0 0 10px 0 rgba(245, 241, 230, 0.35),
+    0 0 4px 0 rgba(245, 241, 230, 0.9);
+}
+
+.twinkle span:nth-child(2) {
+  top: 12px;
+  left: 44px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-star);
+  box-shadow:
+    0 0 15px 0 rgba(246, 200, 95, 0.35),
+    0 0 6px 0 rgba(246, 200, 95, 0.9);
+  animation-delay: 0.6s;
+}
+
+.twinkle span:nth-child(3) {
+  top: 24px;
+  left: 78px;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-violet);
+  box-shadow:
+    0 0 10px 0 rgba(163, 171, 245, 0.35),
+    0 0 4px 0 rgba(163, 171, 245, 0.9);
+  animation-delay: 1.2s;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-16) var(--space-20);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.stepState {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+}
+
+.stepDone .stepState {
+  background: var(--accent-star);
+  box-shadow:
+    0 0 12px 0 rgba(246, 200, 95, 0.3),
+    0 0 6px 0 rgba(246, 200, 95, 0.8);
+}
+
+.stepActive .stepState {
+  background: var(--accent-violet);
+  box-shadow:
+    0 0 14px 0 rgba(163, 171, 245, 0.4),
+    0 0 6px 0 rgba(163, 171, 245, 0.9);
+  animation: twinkle 1.2s ease-in-out infinite;
+}
+
+.stepTodo {
+  color: var(--text-muted);
+}
+
+.stepTodo .stepState {
+  border: 1.5px solid var(--border-strong);
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.skeleton span {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--bg-subtle);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle span,
+  .stepActive .stepState,
+  .skeleton span {
+    animation: none;
+  }
+}

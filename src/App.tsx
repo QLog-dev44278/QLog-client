@@ -6,6 +6,7 @@ import { LoginPage } from './pages/auth/LoginPage'
 import { SignupPage } from './pages/auth/SignupPage'
 import { HomePage } from './pages/home/HomePage'
 import { Placeholder } from './pages/Placeholder'
+import { QuestionDetailPage } from './pages/question-detail/QuestionDetailPage'
 import { QuestionsPage } from './pages/questions/QuestionsPage'
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/questions" element={<QuestionsPage />} />
-          <Route path="/questions/:id" element={<Placeholder title="질문 상세" />} />
+          <Route path="/questions/:id" element={<QuestionDetailPage />} />
           <Route path="/questions/:id/compare" element={<Placeholder title="답변 버전 비교" />} />
           <Route path="/graph" element={<Placeholder title="지식 그래프" />} />
           <Route path="/notes" element={<Placeholder title="정리 노트" />} />
