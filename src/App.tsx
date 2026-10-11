@@ -7,10 +7,10 @@ import { SignupPage } from './pages/auth/SignupPage'
 import { GraphPage } from './pages/graph/GraphPage'
 import { HomePage } from './pages/home/HomePage'
 import { NotesPage } from './pages/notes/NotesPage'
-import { Placeholder } from './pages/Placeholder'
 import { ComparePage } from './pages/question-detail/ComparePage'
 import { QuestionDetailPage } from './pages/question-detail/QuestionDetailPage'
 import { QuestionsPage } from './pages/questions/QuestionsPage'
+import { SettingsPage } from './pages/settings/SettingsPage'
 
 export default function App() {
   return (
@@ -28,7 +28,7 @@ export default function App() {
           <Route path="/questions/:id/compare" element={<ComparePage />} />
           <Route path="/graph" element={<GraphPage />} />
           <Route path="/notes" element={<NotesPage />} />
-          <Route path="/settings" element={<Placeholder title="내 정보 · 설정" />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />

@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from 'react'
 import styles from './Button.module.css'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'danger'
   fullWidth?: boolean
 }
 
