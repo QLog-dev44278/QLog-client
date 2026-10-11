@@ -1,0 +1,103 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding: var(--space-24);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.timeline {
+  display: flex;
+}
+
+.step {
+  flex: 1;
+  min-width: 0;
+}
+
+.stepLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+a.stepLink:hover .title {
+  color: var(--accent-star);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.starOn,
+.starOff {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+}
+
+.starOn {
+  background: var(--accent-star);
+  box-shadow:
+    0 0 14px 0 rgba(246, 200, 95, 0.35),
+    0 0 6px 0 rgba(246, 200, 95, 0.9);
+}
+
+.starOff {
+  border: 1.5px solid var(--border-strong);
+}
+
+.lineOn,
+.lineOff {
+  flex: 1;
+  height: 1px;
+}
+
+.lineOn {
+  background: var(--accent-star);
+}
+
+.lineOff {
+  background: var(--border-default);
+}
+
+.title,
+.titleMuted {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+
+.title {
+  color: var(--text-primary);
+}
+
+.titleMuted {
+  color: var(--text-muted);
+}
+
+.caption {
+  overflow: hidden;
+  padding-right: var(--space-8);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
