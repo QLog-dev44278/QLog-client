@@ -1,0 +1,226 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-24) 80px 64px;
+}
+
+.breadcrumb {
+  display: flex;
+  gap: var(--space-8);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.breadcrumb a:hover {
+  color: var(--text-secondary);
+}
+
+.current,
+.secondary {
+  color: var(--text-secondary);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.titleText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.select {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select select {
+  padding: var(--space-8) 40px var(--space-8) var(--space-16);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.select select:focus {
+  border-color: var(--accent-violet);
+}
+
+.select select option {
+  background: var(--bg-elevated);
+}
+
+.select img {
+  position: absolute;
+  right: var(--space-16);
+  pointer-events: none;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space-24);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-24);
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.date {
+  flex: 1;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.answer {
+  min-height: 150px;
+  padding: var(--space-20);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  font-size: 15px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.added {
+  background: none;
+  color: var(--accent-violet);
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.feedbackLabel {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.feedback ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.changes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-24);
+}
+
+.changesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coverage {
+  color: var(--accent-star);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.changeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.changeItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.plus,
+.warn {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.plus {
+  color: var(--accent-violet);
+}
+
+.warn {
+  color: var(--accent-coral);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: 120px var(--space-16);
+}
+
+.link {
+  color: var(--accent-violet);
+  font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .body {
+    padding: var(--space-24) var(--space-40) 64px;
+  }
+}
+
+@media (max-width: 960px) {
+  .titleRow {
+    flex-wrap: wrap;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
