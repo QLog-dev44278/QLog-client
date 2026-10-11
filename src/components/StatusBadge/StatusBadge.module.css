@@ -1,0 +1,37 @@
+.badge {
+  --tone: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--tone) 14%, transparent);
+  color: var(--tone);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--tone);
+}
+
+.curious {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+}
+
+.studying {
+  --tone: var(--accent-star-white);
+}
+
+.weak {
+  --tone: var(--accent-coral);
+}
+
+.done {
+  --tone: var(--accent-star);
+}
