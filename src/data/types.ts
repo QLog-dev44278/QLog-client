@@ -20,6 +20,8 @@ export type Question = {
   topics: string[]
   /** 카드 우상단에 보이는 상대 시간 (예: "3일 전") */
   date: string
+  /** 등록 후 지난 일수. 정렬과 "오래 방치된 질문" 판단에 쓴다. */
+  daysAgo: number
   /** 카드 하단 한 줄 요약 */
   meta: string
 }
