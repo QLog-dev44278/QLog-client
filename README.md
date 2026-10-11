@@ -97,5 +97,5 @@ src/
 
 ## 브랜치 · 커밋 규칙
 
-- 브랜치: `feat/<번호>-<내용>`, `fix/<내용>`
+- 브랜치: `feat/<내용>`, `fix/<내용>` (예: `feat/notes`, `fix/header-overlap`)
 - 커밋 메시지: `feat: …`, `fix: …`, `docs: …`, `refactor: …`, `chore: …`
