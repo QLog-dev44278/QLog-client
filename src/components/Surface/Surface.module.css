@@ -1,0 +1,9 @@
+.surface {
+  position: relative;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+  box-shadow: var(--elevation-float);
+  backdrop-filter: var(--elevation-blur);
+  -webkit-backdrop-filter: var(--elevation-blur);
+}

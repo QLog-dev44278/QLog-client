@@ -1,0 +1,37 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  background: color-mix(in srgb, var(--bg-base) 55%, transparent);
+  animation: fade-in 0.15s ease-out;
+}
+
+.dialog {
+  max-width: 100%;
+  padding: var(--space-24);
+  animation: rise 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrim,
+  .dialog {
+    animation: none;
+  }
+}

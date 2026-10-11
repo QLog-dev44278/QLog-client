@@ -1,0 +1,18 @@
+.badge {
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--tone) 14%, transparent);
+  color: var(--tone);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.weak {
+  --tone: var(--accent-coral);
+}
+
+.done {
+  --tone: var(--accent-star);
+}

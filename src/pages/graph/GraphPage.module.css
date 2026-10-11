@@ -1,0 +1,367 @@
+/* 03 지식 그래프: 캔버스가 화면 전체(헤더 뒤까지)를 채우고 패널이 위에 뜬다 */
+.page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 96px;
+  bottom: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding: var(--space-24);
+  overflow-y: auto;
+}
+
+.filterPanel {
+  left: var(--space-24);
+  width: 280px;
+}
+
+.detailPanel {
+  right: var(--space-24);
+  width: 340px;
+}
+
+.panelTitle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.caption {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.footnote {
+  margin-top: auto;
+}
+
+.search {
+  width: 100%;
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+  outline: none;
+}
+
+.search::placeholder {
+  color: var(--text-muted);
+}
+
+.search:focus {
+  border-color: var(--accent-violet);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.sectionLabel {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.legendStar {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--tone);
+  box-shadow:
+    0 0 10px 0 color-mix(in srgb, var(--tone) 30%, transparent),
+    0 0 4px 0 color-mix(in srgb, var(--tone) 80%, transparent);
+}
+
+.done {
+  --tone: var(--status-done);
+  width: 6px;
+  height: 6px;
+}
+
+.studying {
+  --tone: var(--status-studying);
+}
+
+.weak {
+  --tone: var(--status-weak);
+}
+
+.todo {
+  --tone: var(--status-todo);
+  width: 4px;
+  height: 4px;
+  box-shadow: none;
+}
+
+.recommended {
+  --tone: var(--status-recommended);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.toggleRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.toggleInput {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--border-strong);
+  transition: background-color 0.15s;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--text-primary);
+  transition: transform 0.15s;
+}
+
+.toggleInput:checked + .toggle {
+  background: var(--accent-violet);
+}
+
+.toggleInput:checked + .toggle::after {
+  transform: translateX(16px);
+}
+
+.toggleInput:focus-visible + .toggle {
+  outline: 2px solid var(--accent-violet);
+  outline-offset: 2px;
+}
+
+/* 노드 상세 */
+.detailHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.heading-done {
+  color: var(--accent-star);
+}
+
+.heading-studying {
+  color: var(--accent-star-white);
+}
+
+.heading-weak {
+  color: var(--accent-coral);
+}
+
+.heading-todo {
+  color: var(--text-muted);
+}
+
+.heading-recommended {
+  color: var(--accent-violet);
+}
+
+.secondary {
+  color: var(--text-secondary);
+}
+
+.detailSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.relatedList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.relatedItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.relatedItem > span:first-child {
+  flex: 1;
+}
+
+.relationType {
+  color: var(--accent-violet);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.detailActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: auto;
+}
+
+/* 03-0 빈 상태 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-20);
+  min-height: calc(100vh - 72px);
+  padding: 0 var(--space-16) 72px;
+  text-align: center;
+}
+
+.emptyText {
+  max-width: 440px;
+  color: var(--text-secondary);
+}
+
+.orbits {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.orbitOuter,
+.orbitInner {
+  position: absolute;
+  border: 1px dashed color-mix(in srgb, var(--accent-violet) 30%, transparent);
+  border-radius: var(--radius-full);
+}
+
+.orbitOuter {
+  inset: 5px;
+  animation: spin 80s linear infinite;
+}
+
+.orbitInner {
+  inset: 32px;
+  animation: spin 50s linear infinite reverse;
+}
+
+.orbitStar {
+  position: absolute;
+  top: 77px;
+  left: 77px;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--accent-violet);
+  box-shadow:
+    0 0 15px 0 rgba(163, 171, 245, 0.35),
+    0 0 6px 0 rgba(163, 171, 245, 0.9);
+}
+
+.legendHint {
+  display: flex;
+  gap: var(--space-16);
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.hintItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.hintStar {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--tone);
+  box-shadow:
+    0 0 12.5px 0 color-mix(in srgb, var(--tone) 35%, transparent),
+    0 0 5px 0 color-mix(in srgb, var(--tone) 90%, transparent);
+}
+
+.hintCurious {
+  --tone: var(--accent-violet);
+}
+
+.hintStudying {
+  --tone: var(--accent-star-white);
+}
+
+.hintDone {
+  --tone: var(--accent-star);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .filterPanel {
+    width: 240px;
+  }
+
+  .detailPanel {
+    width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbitOuter,
+  .orbitInner {
+    animation: none;
+  }
+}
