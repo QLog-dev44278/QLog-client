@@ -4,6 +4,9 @@
   overflow: hidden;
   cursor: grab;
   touch-action: none;
+  /* 드래그·더블클릭할 때 노드 이름이 선택(파랗게 칠해짐)되지 않도록 */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .root:active {

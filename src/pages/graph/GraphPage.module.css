@@ -3,27 +3,148 @@
   position: fixed;
   inset: 0;
   overflow: hidden;
+  --panel-top: 96px;
+  --panel-inset: var(--space-24);
+  --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .panel {
   position: absolute;
-  top: 96px;
-  bottom: var(--space-24);
+  top: var(--panel-top);
+  bottom: var(--panel-inset);
   display: flex;
   flex-direction: column;
   gap: var(--space-24);
   padding: var(--space-24);
   overflow-y: auto;
+  transition:
+    transform 0.35s var(--panel-ease),
+    opacity 0.25s ease,
+    visibility 0s;
 }
 
 .filterPanel {
-  left: var(--space-24);
+  left: var(--panel-inset);
   width: 280px;
 }
 
 .detailPanel {
-  right: var(--space-24);
+  right: var(--panel-inset);
   width: 340px;
+}
+
+/* 접힌 패널: 화면 가장자리 밖으로 미끄러져 사라진다 */
+.collapsed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform 0.3s var(--panel-ease),
+    opacity 0.2s ease,
+    visibility 0s 0.3s;
+}
+
+.filterPanel.collapsed {
+  transform: translateX(calc(-100% - var(--panel-inset))) scale(0.98);
+}
+
+.detailPanel.collapsed {
+  transform: translateX(calc(100% + var(--panel-inset))) scale(0.98);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+/* 패널 안의 접기 버튼 */
+.collapse {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: -4px -6px -4px 0;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.collapse:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+/* 접혔을 때 화면 양쪽 벽에 붙어 남는 세로 탭 손잡이 */
+.handle {
+  position: absolute;
+  top: var(--panel-top);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  width: 36px;
+  height: 88px;
+  padding: 0;
+  color: var(--text-secondary);
+  transition:
+    opacity 0.25s ease 0.1s,
+    transform 0.35s var(--panel-ease) 0.1s,
+    width 0.2s var(--panel-ease),
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.handle:hover {
+  width: 42px;
+  border-color: color-mix(in srgb, var(--accent-violet) 45%, var(--border-strong));
+  color: var(--text-primary);
+}
+
+/* 벽 쪽 모서리와 테두리를 없애 벽에서 튀어나온 것처럼 */
+.filterHandle {
+  left: 0;
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.detailHandle {
+  right: 0;
+  border-right: none;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.handleHidden {
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s ease,
+    transform 0.2s ease;
+}
+
+.filterHandle.handleHidden {
+  transform: translateX(-100%);
+}
+
+.detailHandle.handleHidden {
+  transform: translateX(100%);
+}
+
+/* 오른쪽 손잡이에는 선택한 별의 상태 색을 작게 보여준다 */
+.handleStar {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--tone);
+  box-shadow: 0 0 8px 0 color-mix(in srgb, var(--tone) 60%, transparent);
 }
 
 .panelTitle {
@@ -349,17 +470,35 @@
   }
 }
 
+/* 좁은 화면: 패널은 기본으로 접히고 펼치면 캔버스 위에 뜬다 */
 @media (max-width: 1100px) {
   .filterPanel {
-    width: 240px;
+    width: 280px;
   }
 
   .detailPanel {
-    width: 300px;
+    width: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    --panel-top: 84px;
+    --panel-inset: var(--space-12);
+  }
+
+  .filterPanel,
+  .detailPanel {
+    width: calc(100vw - var(--panel-inset) * 2);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .panel,
+  .handle {
+    transition: none;
+  }
+
   .orbitOuter,
   .orbitInner {
     animation: none;
