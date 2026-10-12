@@ -1,7 +1,8 @@
-/* 디자인상 헤더는 배경 위에 투명하게 놓이므로 고정하지 않고 함께 스크롤된다 */
+/* 디자인상 헤더는 배경 없이 투명하다. 본문만 아래에서 스크롤되므로 늘 상단에 남는다 (AppLayout) */
 .header {
   position: relative;
   z-index: 10;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: var(--space-40);
