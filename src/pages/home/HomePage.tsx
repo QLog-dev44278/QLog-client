@@ -13,19 +13,21 @@ export function HomePage() {
 
   return (
     <main className={styles.body}>
-      <section className={styles.hero}>
-        <h1 className={styles.title}>오늘은 무엇이 궁금한가요?</h1>
-        <p className={styles.subtitle}>
-          질문을 저장해두고, 직접 공부한 뒤 내 말로 답해보세요. AI는 정답 대신 피드백을 줘요.
-        </p>
-      </section>
+      <div className={styles.intro}>
+        <section className={styles.hero}>
+          <h1 className={styles.title}>오늘은 무엇이 궁금한가요?</h1>
+          <p className={styles.subtitle}>
+            질문을 저장해두고, 직접 공부한 뒤 내 말로 답해보세요. AI는 정답 대신 피드백을 줘요.
+          </p>
+        </section>
 
-      <QuestionComposer
-        key={prefill}
-        initialTitle={prefill}
-        // TODO: 질문 저장 API 연동
-        onSave={(question) => setSaved({ ...question, topics: classifyQuestion(question.title) })}
-      />
+        <QuestionComposer
+          key={prefill}
+          initialTitle={prefill}
+          // TODO: 질문 저장 API 연동
+          onSave={(question) => setSaved({ ...question, topics: classifyQuestion(question.title) })}
+        />
+      </div>
 
       <section className={styles.recall}>
         <div className={styles.recallHeader}>

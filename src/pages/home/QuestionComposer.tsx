@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Button } from '../../components/Button/Button'
 import { Surface } from '../../components/Surface/Surface'
+import { ContextModal } from './ContextModal'
 import styles from './QuestionComposer.module.css'
 
 export type NewQuestion = {
@@ -26,33 +27,34 @@ export function QuestionComposer({ onSave, initialTitle = '' }: QuestionComposer
     onSave({ title: title.trim(), context: context.trim() })
     setTitle('')
     setContext('')
-    setContextOpen(false)
   }
 
   return (
     <Surface as="form" className={styles.card} onSubmit={handleSubmit}>
-      <input
-        className={styles.question}
-        placeholder="예: Redis는 왜 빠른가?"
-        aria-label="질문"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-
-      {contextOpen ? (
-        <textarea
-          className={styles.contextInput}
-          placeholder="질문이 생긴 맥락을 적어주세요 · 강의, 링크, 책, 메모"
-          aria-label="질문이 생긴 맥락"
-          rows={3}
-          autoFocus
-          value={context}
-          onChange={(e) => setContext(e.target.value)}
+      <div className={styles.bar}>
+        <button
+          type="button"
+          className={`${styles.plus} ${context ? styles.plusFilled : ''}`}
+          aria-label={context ? '질문이 생긴 맥락 수정' : '질문이 생긴 맥락 추가'}
+          aria-haspopup="dialog"
+          title="질문이 생긴 맥락 추가 (선택) · 강의, 링크, 책, 메모"
+          onClick={() => setContextOpen(true)}
+        >
+          ＋
+        </button>
+        <input
+          className={styles.question}
+          placeholder="예: Redis는 왜 빠른가?"
+          aria-label="질문"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
-      ) : (
-        <button type="button" className={styles.contextToggle} onClick={() => setContextOpen(true)}>
-          <span className={styles.plus}>＋</span>
-          질문이 생긴 맥락 추가 (선택) · 강의, 링크, 책, 메모
+      </div>
+
+      {context && (
+        <button type="button" className={styles.contextPreview} onClick={() => setContextOpen(true)}>
+          <span className={styles.contextLabel}>맥락</span>
+          <span className={styles.contextText}>{context}</span>
         </button>
       )}
 
@@ -63,6 +65,10 @@ export function QuestionComposer({ onSave, initialTitle = '' }: QuestionComposer
           질문 저장
         </Button>
       </div>
+
+      {contextOpen && (
+        <ContextModal initialContext={context} onSave={setContext} onClose={() => setContextOpen(false)} />
+      )}
     </Surface>
   )
 }

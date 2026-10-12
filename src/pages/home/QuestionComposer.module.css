@@ -1,82 +1,107 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: 14px;
   width: 100%;
-  max-width: 880px;
-  padding: var(--space-24);
+  max-width: 920px;
+  padding: 28px;
 }
 
-.question {
-  width: 100%;
-  padding: var(--space-20);
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: 0 var(--space-12);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
+  transition: border-color 0.15s;
+}
+
+.bar:focus-within {
+  border-color: var(--accent-violet);
+}
+
+/* 입력 바 안의 맥락 추가 버튼 */
+.plus {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 18px;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.plus:hover {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
   color: var(--text-primary);
-  font-size: 16px;
+}
+
+.plusFilled {
+  color: var(--accent-violet);
+}
+
+.question {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-24) var(--space-8);
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.005em;
   outline: none;
-  transition: border-color 0.15s;
 }
 
 .question::placeholder {
   color: var(--text-muted);
 }
 
-.question:focus {
-  border-color: var(--accent-violet);
-}
-
-.contextToggle {
+/* 저장한 맥락 미리보기: 누르면 모달에서 수정 */
+.contextPreview {
   display: flex;
   align-items: center;
   gap: var(--space-8);
   width: 100%;
-  padding: var(--space-12) var(--space-16);
+  padding: var(--space-8) var(--space-12);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
-  color: var(--text-muted);
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
   text-align: left;
 }
 
-.contextToggle:hover {
-  color: var(--text-secondary);
+.contextLabel {
+  flex-shrink: 0;
+  color: var(--accent-violet);
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.plus {
+.contextText {
+  overflow: hidden;
   color: var(--text-secondary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.contextInput {
-  width: 100%;
-  padding: var(--space-12) var(--space-16);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  background: var(--bg-subtle);
+.contextPreview:hover .contextText {
   color: var(--text-primary);
-  font-size: 14px;
-  line-height: 1.6;
-  resize: vertical;
-  outline: none;
-}
-
-.contextInput::placeholder {
-  color: var(--text-muted);
-}
-
-.contextInput:focus {
-  border-color: var(--accent-violet);
 }
 
 .actions {
   display: flex;
   align-items: center;
   gap: var(--space-8);
+  margin-top: var(--space-4);
 }
 
 .dot {
@@ -88,10 +113,23 @@
 
 .hint {
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
 }
 
 .submit {
   margin-left: auto;
+  padding: 13px 22px;
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--space-20);
+  }
+
+  .question {
+    padding: var(--space-16) var(--space-4);
+    font-size: 16px;
+  }
 }
