@@ -5,6 +5,7 @@ import { currentUser } from '../../data/mock'
 import { avatarInitial } from '../../utils/avatar'
 import { Logo } from '../Logo/Logo'
 import { ProfileMenu } from '../ProfileMenu/ProfileMenu'
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
@@ -51,6 +52,7 @@ export function Header() {
         ))}
       </nav>
       <div className={styles.spacer} />
+      <ThemeToggle />
       <div className={styles.profileWrap} ref={profileRef}>
         <button
           type="button"

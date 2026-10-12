@@ -119,9 +119,9 @@ export function GraphCanvas({ nodes, edges, selectedId, isDimmed, onSelect }: Gr
             return (
               <g key={key} className={dimmed ? styles.dimmed : undefined}>
                 <linearGradient id={`grad-${key}`} gradientUnits="userSpaceOnUse" x1={x1} y1={y1} x2={x2} y2={y2}>
-                  <stop stopColor="#DBE3FF" stopOpacity={0.04} />
-                  <stop offset={0.5} stopColor="#DBE3FF" stopOpacity={0.5} />
-                  <stop offset={1} stopColor="#DBE3FF" stopOpacity={0.04} />
+                  <stop stopColor="var(--graph-edge)" stopOpacity={0.04} />
+                  <stop offset={0.5} stopColor="var(--graph-edge)" stopOpacity={0.5} />
+                  <stop offset={1} stopColor="var(--graph-edge)" stopOpacity={0.04} />
                 </linearGradient>
                 <line
                   x1={x1}

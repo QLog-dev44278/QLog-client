@@ -1,0 +1,17 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.toggle:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}

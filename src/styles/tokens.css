@@ -1,5 +1,7 @@
 /* Figma "Design" 페이지의 변수(Variables)와 텍스트·이펙트 스타일 */
 :root {
+  color-scheme: dark;
+
   /* background */
   --bg-base: #0c1124;
   --bg-subtle: #182040;
@@ -31,6 +33,9 @@
   --status-todo: #4b5480;
   --status-recommended: #a3abf5;
 
+  /* 지식 그래프 연결선 */
+  --graph-edge: #dbe3ff;
+
   /* space */
   --space-4: 4px;
   --space-8: 8px;
@@ -52,4 +57,44 @@
   --elevation-blur: blur(12px);
 
   --font-sans: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+}
+
+/* 라이트 모드 = 밝은 극야: 해는 뜨지 않지만 하늘이 푸르게 밝아진 박명. 옅은 오로라, 흰 별 */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* 하늘 (Background) */
+  --sky-top: #c2cdea;
+  --sky-mid: #dfe5f3;
+
+  --bg-base: #eef1f8;
+  --bg-subtle: #e3e8f4;
+  --bg-elevated: #f8faff;
+
+  --border-default: #cdd5ea;
+  --border-strong: #bcc6e0;
+
+  --text-primary: #16213f;
+  --text-secondary: #4a5778;
+  --text-muted: #8390b0;
+  --text-on-primary: #1a1405;
+
+  --accent-star: #d9961a;
+  --accent-star-white: #8e9bbd;
+  /* 오로라에서 딴 청록. 이름은 다크와 맞춰 둔다 */
+  --accent-violet: #2f8a85;
+  --accent-coral: #cf5f3e;
+
+  --action-primary: #f6c85f;
+
+  --status-done: #d9961a;
+  --status-studying: #8e9bbd;
+  --status-weak: #cf5f3e;
+  --status-todo: #c3cbe0;
+  --status-recommended: #2f8a85;
+
+  --graph-edge: #4a5778;
+
+  --elevation-float: 0 1px 3px 0 rgba(22, 33, 63, 0.06), 0 12px 32px -8px rgba(40, 60, 110, 0.16),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
 }

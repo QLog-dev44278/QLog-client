@@ -12,6 +12,15 @@
       rel="stylesheet"
     />
     <title>QLog</title>
+    <!-- 첫 화면이 그려지기 전에 저장된 테마를 적용해 깜빡임을 막는다 (src/utils/theme.ts와 같은 키) -->
+    <script>
+      try {
+        if (localStorage.getItem('qlog-theme') === 'light') {
+          document.documentElement.dataset.theme = 'light'
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#c2cdea')
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

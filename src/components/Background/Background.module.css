@@ -29,6 +29,31 @@
   animation: twinkle 7s ease-in-out infinite alternate;
 }
 
+/* 밝은 극야: 위가 진한 박명 하늘 */
+:global([data-theme='light']) .root {
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--bg-base) 100%);
+}
+
+/* 흰 별은 하늘이 진한 위쪽에서만 보이도록 아래로 갈수록 사라지게, 은은한 빛번짐을 더한다 */
+:global([data-theme='light']) .stars {
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.9));
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 75%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 75%);
+}
+
+/* 테마에 맞는 그라데이션만 보인다 */
+.light {
+  display: none;
+}
+
+:global([data-theme='light']) .dark {
+  display: none;
+}
+
+:global([data-theme='light']) .light {
+  display: block;
+}
+
 @keyframes drift {
   0% {
     transform: translate(0, 0) scale(1);
