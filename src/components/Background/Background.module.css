@@ -17,7 +17,7 @@
   width: 156.95%;
   height: 195.55%;
   max-width: none;
-  animation: drift 75s ease-in-out infinite alternate;
+  animation: drift 40s ease-in-out infinite alternate;
 }
 
 .stars {
@@ -26,8 +26,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: twinkle 7s ease-in-out infinite alternate;
 }
+
+/* 별 하나하나의 반짝임은 bg-stars.svg 안의 애니메이션이 맡는다 */
 
 /* 밝은 극야: 위가 진한 박명 하늘 */
 :global([data-theme='light']) .root {
@@ -54,33 +55,28 @@
   display: block;
 }
 
+/* 오로라처럼 크게 일렁이도록 이동·크기·색을 넉넉히 움직인다 */
 @keyframes drift {
   0% {
     transform: translate(0, 0) scale(1);
     filter: hue-rotate(0deg);
   }
-  50% {
-    transform: translate(-4%, 3%) scale(1.06);
-    filter: hue-rotate(-12deg);
+  33% {
+    transform: translate(-8%, 5%) scale(1.12);
+    filter: hue-rotate(-20deg);
+  }
+  66% {
+    transform: translate(5%, 7%) scale(1.06);
+    filter: hue-rotate(8deg);
   }
   100% {
-    transform: translate(3%, -2%) scale(1.02);
-    filter: hue-rotate(10deg);
-  }
-}
-
-@keyframes twinkle {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.55;
+    transform: translate(7%, -4%) scale(1.1);
+    filter: hue-rotate(18deg);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gradient,
-  .stars {
+  .gradient {
     animation: none;
   }
 }
